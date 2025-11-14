@@ -1,0 +1,193 @@
+'use client';
+
+import { FaExclamationCircle } from 'react-icons/fa';
+import Image from 'next/image';
+import Link from 'next/link';
+import { motion } from 'framer-motion';
+import { useState } from 'react';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+
+export default function Reclamations() {
+  const [subject, setSubject] = useState("");
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-amber-400 via-red-400 to-red-600 relative overflow-hidden">
+      <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-20"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-amber-400/50 via-transparent to-red-600/50 backdrop-blur-3xl"></div>
+
+      {/* Bulles d'arrière-plan animées */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute -top-40 -left-40 w-80 h-80 bg-red-500/30 rounded-full blur-3xl animate-blob"></div>
+        <div className="absolute top-0 -right-40 w-80 h-80 bg-amber-500/30 rounded-full blur-3xl animate-blob animation-delay-2000"></div>
+        <div className="absolute -bottom-40 left-20 w-80 h-80 bg-orange-500/30 rounded-full blur-3xl animate-blob animation-delay-4000"></div>
+      </div>
+
+      {/* Navigation */}
+      <nav className="relative z-20 flex justify-between items-center p-6 max-w-7xl mx-auto">
+        <motion.div 
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <Link href="/" className="flex items-center">
+            <Image 
+              src="/logo.svg" 
+              alt="Haya Assurances Logo" 
+              width={200} 
+              height={53} 
+              className="w-auto h-[40px]"
+              priority
+            />
+          </Link>
+        </motion.div>
+        <motion.div 
+          className="flex gap-6 items-center"
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <Link href="/" className="text-white hover:text-amber-200 transition-colors font-medium">
+            Accueil
+          </Link>
+          <Link href="/a-votre-ecoute" className="text-white hover:text-amber-200 transition-colors font-medium">
+            Nous Contacter
+          </Link>
+        </motion.div>
+      </nav>
+
+      {/* Contenu Principal */}
+      <div className="relative z-10 px-6 py-20">
+        <div className="max-w-3xl mx-auto">
+          <motion.div 
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <div className="flex justify-center mb-6">
+              <div className="p-4 bg-gradient-to-br from-amber-400 to-red-600 rounded-2xl">
+                <FaExclamationCircle className="text-4xl text-white" />
+              </div>
+            </div>
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              Vos Réclamations
+            </h1>
+            <p className="text-xl text-white/90">
+              Nous prenons vos réclamations au sérieux et nous nous engageons à y répondre dans les plus brefs délais
+            </p>
+          </motion.div>
+
+          <motion.div 
+            className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 shadow-lg"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            <form className="space-y-6">
+              <div className="group/field">
+                <label htmlFor="fullName" className="block text-sm font-medium text-white mb-2">Nom et Prénom</label>
+                <input
+                  type="text"
+                  id="fullName"
+                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/50 focus:outline-none focus:border-white/40 focus:ring-2 focus:ring-amber-500/40 transition-all duration-300"
+                  placeholder="Votre nom et prénom"
+                  required
+                />
+              </div>
+
+              <div className="group/field">
+                <label htmlFor="email" className="block text-sm font-medium text-white mb-2">Adresse Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/50 focus:outline-none focus:border-white/40 focus:ring-2 focus:ring-amber-500/40 transition-all duration-300"
+                  placeholder="votre@email.com"
+                  required
+                />
+              </div>
+
+              <div className="group/field">
+                <label htmlFor="phone" className="block text-sm font-medium text-white mb-2">Numéro de Téléphone</label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  pattern="^[0-9\s\+\-\(\)]{10,}$"
+                  title="Veuillez entrer un numéro de téléphone valide (10 chiffres minimum)"
+                  inputMode="tel"
+                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/50 focus:outline-none focus:border-white/40 focus:ring-2 focus:ring-amber-500/40 transition-all duration-300"
+                  placeholder="Ex: 06 12 34 56 78"
+                  required
+                />
+              </div>
+
+              <div className="group/field">
+                <label htmlFor="subject" className="block text-sm font-medium text-white mb-2">Sujet de la réclamation</label>
+                <Select value={subject} onValueChange={setSubject} required>
+                  <SelectTrigger className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white focus:outline-none focus:border-white/40 focus:ring-2 focus:ring-amber-500/40">
+                    <SelectValue placeholder="Sélectionnez un sujet" />
+                  </SelectTrigger>
+                  <SelectContent className="bg-gray-900 border-white/20">
+                    <SelectItem value="assurance-auto" className="text-white hover:bg-white/10 focus:bg-white/10">Assurance Auto</SelectItem>
+                    <SelectItem value="assurance-habitation" className="text-white hover:bg-white/10 focus:bg-white/10">Assurance Habitation</SelectItem>
+                    <SelectItem value="assurance-sante" className="text-white hover:bg-white/10 focus:bg-white/10">Assurance Santé</SelectItem>
+                    <SelectItem value="assurance-vie" className="text-white hover:bg-white/10 focus:bg-white/10">Assurance Vie</SelectItem>
+                    <SelectItem value="autre" className="text-white hover:bg-white/10 focus:bg-white/10">Autre</SelectItem>
+                  </SelectContent>
+                </Select>
+                <input type="hidden" name="subject" value={subject} />
+              </div>
+
+              <div className="group/field">
+                <label htmlFor="policyNumber" className="block text-sm font-medium text-white mb-2">Numéro de Police (optionnel)</label>
+                <input
+                  type="text"
+                  id="policyNumber"
+                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/50 focus:outline-none focus:border-white/40 focus:ring-2 focus:ring-amber-500/40 transition-all duration-300"
+                  placeholder="Votre numéro de police d'assurance"
+                />
+              </div>
+
+              <div className="group/field">
+                <label htmlFor="message" className="block text-sm font-medium text-white mb-2">Description détaillée de votre réclamation</label>
+                <textarea
+                  id="message"
+                  rows={6}
+                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/50 focus:outline-none focus:border-white/40 focus:ring-2 focus:ring-amber-500/40 transition-all duration-300 resize-none"
+                  placeholder="Veuillez décrire votre réclamation en détail..."
+                  required
+                ></textarea>
+              </div>
+
+              <div className="group/field">
+                <label className="flex items-start gap-3">
+                  <input
+                    type="checkbox"
+                    className="mt-1"
+                    required
+                  />
+                  <span className="text-sm text-white/90">
+                    Je confirme que les informations fournies sont exactes et j'accepte que mes données soient traitées conformément à la politique de confidentialité
+                  </span>
+                </label>
+              </div>
+
+              <button
+                type="submit"
+                className="w-full bg-gradient-to-r from-amber-400 to-red-600 text-white font-semibold py-4 rounded-xl hover:from-amber-500 hover:to-red-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+              >
+                Soumettre la réclamation
+              </button>
+            </form>
+          </motion.div>
+        </div>
+      </div>
+    </div>
+  );
+} 

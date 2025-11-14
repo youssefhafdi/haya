@@ -1,0 +1,15 @@
+<svg width="300" height="80" viewBox="0 0 300 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <text x="10" y="50" font-family="Arial" font-weight="900" font-size="45" fill="black">HAYA</text>
+  <text x="130" y="50" font-family="Arial" font-weight="900" font-size="45" fill="#00A3FF">ASSURANCES</text>
+  <path d="M 270 10 C 270 10, 300 10, 300 40" stroke="#00A3FF" stroke-width="3" fill="none"/>
+  <g fill="#00A3FF">
+    <rect x="295" y="15" width="3" height="3"/>
+    <rect x="292" y="18" width="3" height="3"/>
+    <rect x="289" y="21" width="3" height="3"/>
+    <rect x="286" y="24" width="3" height="3"/>
+    <rect x="283" y="27" width="3" height="3"/>
+    <rect x="280" y="30" width="3" height="3"/>
+    <rect x="277" y="33" width="3" height="3"/>
+    <rect x="274" y="36" width="3" height="3"/>
+  </g>
+</svg> 
