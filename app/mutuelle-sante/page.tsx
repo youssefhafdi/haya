@@ -126,7 +126,7 @@ export default function MutuelleSanteDevis() {
                   name="Qui assurer"
                   required
                   options={[
-                    { value: "", label: "Sélectionnez" },
+                    { value: "select", label: "Sélectionnez" },
                     { value: "Moi uniquement", label: "Moi uniquement" },
                     { value: "Moi et mon conjoint/concubin", label: "Moi et mon conjoint/concubin" },
                     { value: "Moi et mes enfants", label: "Moi et mes enfants" },
@@ -188,7 +188,7 @@ export default function MutuelleSanteDevis() {
                   name="Situation professionnelle"
                   required
                   options={[
-                    { value: "", label: "Sélectionnez" },
+                    { value: "select", label: "Sélectionnez" },
                     { value: "Salarié", label: "Salarié" },
                     { value: "Fonctionnaire", label: "Fonctionnaire" },
                     { value: "Indépendant", label: "Indépendant" },
@@ -206,7 +206,7 @@ export default function MutuelleSanteDevis() {
                   name="Régime social"
                   required
                   options={[
-                    { value: "", label: "Sélectionnez" },
+                    { value: "select", label: "Sélectionnez" },
                     { value: "Régime général (CPAM)", label: "Régime général (CPAM)" },
                     { value: "Régime agricole (MSA)", label: "Régime agricole (MSA)" },
                     { value: "Régime social des indépendants (RSI)", label: "Régime social des indépendants (RSI)" },
@@ -220,7 +220,7 @@ export default function MutuelleSanteDevis() {
                   id="revenus"
                   name="Revenus annuels"
                   options={[
-                    { value: "", label: "Sélectionnez" },
+                    { value: "select", label: "Sélectionnez" },
                     { value: "Moins de 15 000€", label: "Moins de 15 000€" },
                     { value: "15 000€ - 25 000€", label: "15 000€ - 25 000€" },
                     { value: "25 000€ - 40 000€", label: "25 000€ - 40 000€" },
@@ -240,7 +240,7 @@ export default function MutuelleSanteDevis() {
                   name="Mutuelle actuelle"
                   required
                   options={[
-                    { value: "", label: "Sélectionnez" },
+                    { value: "select", label: "Sélectionnez" },
                     { value: "Oui", label: "Oui" },
                     { value: "Non", label: "Non" },
                   ]}
@@ -253,7 +253,7 @@ export default function MutuelleSanteDevis() {
                   name="Niveau de protection"
                   required
                   options={[
-                    { value: "", label: "Sélectionnez" },
+                    { value: "select", label: "Sélectionnez" },
                     { value: "Économique", label: "Économique" },
                     { value: "Standard", label: "Standard" },
                     { value: "Comfort", label: "Comfort" },
@@ -271,7 +271,7 @@ export default function MutuelleSanteDevis() {
                   id="besoinsSpecifiques"
                   name="Besoins spécifiques"
                   options={[
-                    { value: "", label: "Aucun" },
+                    { value: "select", label: "Aucun" },
                     { value: "Optique", label: "Optique" },
                     { value: "Dentaire", label: "Dentaire" },
                     { value: "Hospitalisation", label: "Hospitalisation" },

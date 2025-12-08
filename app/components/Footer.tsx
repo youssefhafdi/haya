@@ -180,7 +180,7 @@ export default function Footer() {
                 <FaMapMarkerAlt className="text-sky-400 mt-1 flex-shrink-0" />
                 <span className="text-gray-300">
                   17 Place du Général de Gaulle<br />
-                  93100 Montreuil, France
+                     Montreuil, France
                 </span>
               </li>
               <li className="flex items-center gap-3">
