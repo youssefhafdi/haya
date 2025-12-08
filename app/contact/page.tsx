@@ -168,10 +168,10 @@ export default function Contact() {
                   <div>
                     <h3 className="text-lg font-semibold text-white mb-2">Email</h3>
                     <a 
-                      href="mailto:contact@haya-assurances.com" 
+                      href="mailto:Hayaassurances@gmail.com" 
                       className="text-white/80 hover:text-white transition-colors"
                     >
-                      contact@haya-assurances.com
+                      Hayaassurances@gmail.com
                     </a>
                   </div>
                 </div>

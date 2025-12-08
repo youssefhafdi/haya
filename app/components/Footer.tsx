@@ -191,8 +191,8 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-3">
                 <FaEnvelope className="text-sky-400 flex-shrink-0" />
-                <a href="mailto:contact@haya-assurances.fr" className="text-gray-300 hover:text-sky-400 transition-colors duration-300">
-                  contact@haya-assurances.fr
+                <a href="mailto:Hayaassurances@gmail.com" className="text-gray-300 hover:text-sky-400 transition-colors duration-300">
+                  Hayaassurances@gmail.com
                 </a>
               </li>
             </ul>

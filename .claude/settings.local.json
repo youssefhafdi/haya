@@ -4,7 +4,9 @@
       "Bash(cat:*)",
       "Bash(ls:*)",
       "Bash(find:*)",
-      "WebFetch(domain:ui.shadcn.com)"
+      "WebFetch(domain:ui.shadcn.com)",
+      "Bash(sshpass -p 'c987ygG9D4sZ' ssh -o StrictHostKeyChecking=no ubuntu@51.178.52.167 'uname -a && lsb_release -a')",
+      "Bash(ssh:*)"
     ],
     "deny": [],
     "ask": []
