@@ -6,7 +6,7 @@ export default function Chatbot() {
   useEffect(() => {
     const iframe = document.createElement("iframe");
     iframe.src =
-      "https://limova-web-sltj.onrender.com/embededChatbot?connectionId=b2684a4d-c4db-4a87-8384-0c5a0b3f868b";
+      "https://limova-web-sltj.onrender.com/embededChatbot?connectionId=1acc9ab8-7a5c-4176-947f-1b4b5a31b90b";
 
     const isMobile = window.innerWidth < 768;
     const openWidth = isMobile ? "90%" : "420px";
@@ -27,6 +27,7 @@ export default function Chatbot() {
       transition: "width 0.3s ease, height 0.3s ease, border-radius 0.3s ease",
       boxShadow: "0 4px 12px rgba(0, 0, 0, 0.15)",
       overflow: "hidden",
+      backgroundColor: "#0ea5e9",
     });
 
     document.body.appendChild(iframe);

@@ -9,15 +9,7 @@ import { useGoogleReCaptcha, RecaptchaProvider } from './components/RecaptchaPro
 
 const slides = [
   {
-    title: "Votre assurance, notre engagement",
-    subtitle: "Des solutions sur mesure pour protéger ce qui compte le plus pour vous",
-    image: "/assets/image1.jpeg",
-    cta: {
-      secondary: {
-        text: "Nous contacter",
-        link: "/contact"
-      }
-    }
+    image: "/assets/image 1.jpeg",
   },
   {
     title: "L'expertise à votre service",
@@ -31,15 +23,8 @@ const slides = [
     }
   },
   {
-    title: "Des solutions innovantes",
-    subtitle: "Découvrez nos services adaptés à vos besoins spécifiques",
+ 
     image: "/assets/image2.png",
-    cta: {
-      secondary: {
-        text: "Nos reconnaissances",
-        link: "/certifications"
-      }
-    }
   }
 ];
 
