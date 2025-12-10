@@ -11,7 +11,7 @@ const slides = [
   {
     title: "Votre assurance, notre engagement",
     subtitle: "Des solutions sur mesure pour protéger ce qui compte le plus pour vous",
-    image: "https://images.unsplash.com/photo-1560520653-9e0e4c89eb11?q=80&w=2073&auto=format&fit=crop",
+    image: "/assets/image1.jpeg",
     cta: {
       secondary: {
         text: "Nous contacter",
@@ -33,7 +33,7 @@ const slides = [
   {
     title: "Des solutions innovantes",
     subtitle: "Découvrez nos services adaptés à vos besoins spécifiques",
-    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070&auto=format&fit=crop",
+    image: "/assets/image2.png",
     cta: {
       secondary: {
         text: "Nos reconnaissances",
@@ -69,11 +69,6 @@ const services = [
     title: "Assurance emprunteur",
     color: "#3b82f6"
   },
-  {
-    icon: FaBriefcase,
-    title: "Assurance pro",
-    color: "#3b82f6"
-  }
 ];
 
 function ContactForm() {
@@ -301,6 +296,14 @@ export default function Home() {
                 >
                   Centre d’information
                 </Link>
+                <Link
+                  href="#services"
+                  className={`font-medium transition-colors duration-300 hover:text-sky-500 ${
+                    isScrolled ? 'text-gray-700' : 'text-white'
+                  }`}
+                >
+                  Nos services
+                </Link>
               </div>
 
               {/* Bouton Menu Mobile */}
@@ -376,6 +379,13 @@ export default function Home() {
                   className="block text-gray-700 font-medium hover:text-sky-500 transition-colors duration-300 py-2"
                 >
                   Blog
+                </Link>
+                <Link
+                  href="#services"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="block text-gray-700 font-medium hover:text-sky-500 transition-colors duration-300 py-2"
+                >
+                  Nos services
                 </Link>
                 <div className="pt-4 border-t">
                   <Link
@@ -475,7 +485,7 @@ export default function Home() {
                       initial={{ scale: 1.2 }}
                       animate={{ scale: 1 }}
                       transition={{ duration: 10 }}
-                      className="w-full h-full"
+                      className="w-full h-full relative"
                     >
         <Image
                         src={slide.image}
@@ -561,7 +571,7 @@ export default function Home() {
               </motion.h2>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-8 max-w-7xl mx-auto">
+            <div className="flex flex-wrap gap-8 max-w-6xl mx-auto items-stretch justify-center px-2">
               {services.map((service, index) => (
                 <motion.div
                   key={service.title}
@@ -570,7 +580,7 @@ export default function Home() {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
                   whileHover={{ y: -5, scale: 1.02 }}
-                  className="bg-white rounded-3xl p-10 shadow-xl border-2 border-gray-100 hover:border-blue-400 hover:shadow-2xl transition-all duration-500 flex flex-col relative overflow-hidden group backdrop-blur-sm"
+                  className="bg-white rounded-3xl p-10 shadow-xl border-2 border-gray-100 hover:border-blue-400 hover:shadow-2xl transition-all duration-500 flex flex-col relative overflow-hidden group backdrop-blur-sm h-full w-64 sm:w-72"
                 >
                   {/* Effet de gradient en arrière-plan au hover */}
                   <div className="absolute inset-0 bg-gradient-to-br from-blue-50/0 via-blue-50/0 to-blue-50/0 group-hover:from-blue-50/60 group-hover:via-blue-50/30 group-hover:to-transparent transition-all duration-500 rounded-3xl"></div>
@@ -689,9 +699,9 @@ export default function Home() {
                       </div>
                       <div>
                         <h4 className="text-lg font-semibold text-white mb-1">Adresse</h4>
-                        <p className="text-sky-100">17, Place du Général de Gaulle</p>
-                        <p className="text-sky-100">93100 Montreuil</p>
-                        <p className="text-sky-100">Île-de-France, France</p>
+                        <p className="text-sky-100">254 Rue Vendôme</p>
+                        <p className="text-sky-100">69003 Lyon</p>
+                        <p className="text-sky-100">France</p>
                       </div>
                     </div>
 
@@ -734,7 +744,7 @@ export default function Home() {
                   <h3 className="text-2xl font-bold text-white mb-6">Notre localisation</h3>
                   <div className="w-full h-[400px] rounded-xl overflow-hidden">
                     <iframe
-                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.9891796430147!2d2.4308621!3d48.8684354!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66d5c75462e51%3A0x7f0c8bec5e1e4d6a!2s17%20Pl.%20du%20G%C3%A9n%C3%A9ral%20de%20Gaulle%2C%2093100%20Montreuil!5e0!3m2!1sfr!2sfr!4v1710371547744!5m2!1sfr!2sfr"
+                      src="https://www.google.com/maps?q=254%20Rue%20Vend%C3%B4me%2C%2069003%20Lyon&output=embed"
                       width="100%"
                       height="100%"
                       style={{ border: 0 }}
@@ -752,7 +762,7 @@ export default function Home() {
     
     {/* Section Statistiques - DERNIÈRE SECTION DE LA PAGE */}
     <section className="relative z-10 py-20 overflow-hidden bg-gradient-to-r from-sky-900 to-blue-900">
-      <div className="absolute inset-0 bg-[url('/pattern.png')] opacity-10"/>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(255,255,255,0.08)_1px,_transparent_1px)] opacity-10"/>
       <div className="relative max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           <motion.div

@@ -179,8 +179,8 @@ export default function Footer() {
               <li className="flex items-start gap-3">
                 <FaMapMarkerAlt className="text-sky-400 mt-1 flex-shrink-0" />
                 <span className="text-gray-300">
-                  17 Place du Général de Gaulle<br />
-                     Montreuil, France
+                  254 Rue Vendôme<br />
+                  69003 Lyon, France
                 </span>
               </li>
               <li className="flex items-center gap-3">
@@ -191,8 +191,8 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-3">
                 <FaEnvelope className="text-sky-400 flex-shrink-0" />
-                <a href="mailto:Hayaassurances@gmail.com" className="text-gray-300 hover:text-sky-400 transition-colors duration-300">
-                  Hayaassurances@gmail.com
+                <a href="mailto:contact@haya-assurances.com" className="text-gray-300 hover:text-sky-400 transition-colors duration-300">
+                  contact@haya-assurances.com
                 </a>
               </li>
             </ul>

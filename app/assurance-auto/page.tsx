@@ -102,7 +102,7 @@ export default function AutoDevis() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 to-sky-900">
       <div className="absolute top-8 left-8 z-50">
-        <Link href="/contact">
+        <Link href="/">
           <motion.div whileHover={{ x: -5 }} className="flex items-center gap-2 text-white bg-black/20 backdrop-blur-md px-4 py-2 rounded-full hover:bg-black/40 transition-colors duration-300">
             <FaArrowLeft className="text-lg" />
             <span>Retour</span>

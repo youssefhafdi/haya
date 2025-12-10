@@ -112,15 +112,6 @@ export default function Contact() {
             >
               Faire une réclamation
             </motion.button>
-            <Link href="/assurance-auto">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-6 py-3 rounded-full font-medium transition-all duration-300 bg-white/10 text-white/80 hover:bg-white/20"
-              >
-                Devis Auto
-              </motion.button>
-            </Link>
           </div>
         </div>
 
@@ -140,9 +131,9 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-white mb-2">Notre Adresse</h3>
-                    <p className="text-white/80">17, Place du Général de Gaulle</p>
-                    <p className="text-white/80">93100 Montreuil</p>
-                    <p className="text-white/80">Île-de-France, France</p>
+                    <p className="text-white/80">254 Rue Vendôme</p>
+                    <p className="text-white/80">69003 Lyon</p>
+                    <p className="text-white/80">France</p>
                   </div>
                 </div>
 
@@ -168,10 +159,10 @@ export default function Contact() {
                   <div>
                     <h3 className="text-lg font-semibold text-white mb-2">Email</h3>
                     <a 
-                      href="mailto:Hayaassurances@gmail.com" 
+                      href="mailto:contact@haya-assurances.com" 
                       className="text-white/80 hover:text-white transition-colors"
                     >
-                      Hayaassurances@gmail.com
+                      contact@haya-assurances.com
                     </a>
                   </div>
                 </div>
@@ -307,15 +298,15 @@ export default function Contact() {
           <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20">
             <h2 className="text-2xl font-bold text-white mb-8">Notre localisation</h2>
             <div className="w-full h-[400px] rounded-xl overflow-hidden">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.9891796430147!2d2.4308621!3d48.8684354!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66d5c75462e51%3A0x7f0c8bec5e1e4d6a!2s17%20Pl.%20du%20G%C3%A9n%C3%A9ral%20de%20Gaulle%2C%2093100%20Montreuil!5e0!3m2!1sfr!2sfr!4v1710371547744!5m2!1sfr!2sfr"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              ></iframe>
+                <iframe
+                  src="https://www.google.com/maps?q=254%20Rue%20Vend%C3%B4me%2C%2069003%20Lyon&output=embed"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                ></iframe>
             </div>
           </div>
         </motion.div>
