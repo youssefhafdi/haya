@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { useGoogleReCaptcha, RecaptchaProvider } from './components/RecaptchaProvider';
+import { MdHeight } from 'react-icons/md';
 
 const slides = [
   {
@@ -464,8 +465,8 @@ export default function Home() {
                   transition={{ duration: 0.7 }}
                 >
                   {/* Image de fond avec overlay */}
-                  <div className="absolute inset-0">
-                    <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent z-10" />
+                  <div className="absolute inset-0 bg-gradient-to-b from-sky-100 to-sky-200">
+                    <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent z-10" />
                     <motion.div
                       initial={{ scale: 1.2 }}
                       animate={{ scale: 1 }}
@@ -476,7 +477,7 @@ export default function Home() {
                         src={slide.image}
                         alt={slide.title || "Slide Image"}
                         fill
-                        className="object-cover"
+                        className="object-contain object-center"
           priority
         />
                     </motion.div>
