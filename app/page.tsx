@@ -474,7 +474,7 @@ export default function Home() {
                     >
         <Image
                         src={slide.image}
-                        alt={slide.title}
+                        alt={slide.title || "Slide Image"}
                         fill
                         className="object-cover"
           priority
@@ -508,12 +508,6 @@ export default function Home() {
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                           >
-                            <Link
-                              href={slide.cta.secondary.link}
-                              className="inline-flex items-center px-8 py-4 bg-white/10 backdrop-blur-md text-white rounded-full hover:bg-white/20 transition-colors border border-white/20"
-                            >
-                              {slide.cta.secondary.text}
-                            </Link>
                           </motion.div>
                         </div>
                       </motion.div>
