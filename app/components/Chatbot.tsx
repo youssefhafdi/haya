@@ -1,10 +1,22 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
+
+const CHATBOT_IFRAME_ID = "haya-chatbot-iframe";
 
 export default function Chatbot() {
+  const iframeRef = useRef<HTMLIFrameElement | null>(null);
+
   useEffect(() => {
+    // Check if iframe already exists to prevent duplicates
+    const existingIframe = document.getElementById(CHATBOT_IFRAME_ID);
+    if (existingIframe) {
+      iframeRef.current = existingIframe as HTMLIFrameElement;
+      return;
+    }
+
     const iframe = document.createElement("iframe");
+    iframe.id = CHATBOT_IFRAME_ID;
     iframe.src =
       "https://limova-web-sltj.onrender.com/embededChatbot?connectionId=1acc9ab8-7a5c-4176-947f-1b4b5a31b90b";
 
@@ -31,30 +43,29 @@ export default function Chatbot() {
     });
 
     document.body.appendChild(iframe);
+    iframeRef.current = iframe;
 
     const handleMessage = (event: MessageEvent) => {
       const data = event.data;
-      if (data && typeof data === "object" && "chatbotOpen" in data) {
+      const currentIframe = document.getElementById(CHATBOT_IFRAME_ID) as HTMLIFrameElement;
+      if (currentIframe && data && typeof data === "object" && "chatbotOpen" in data) {
         if (data.chatbotOpen === true) {
-          iframe.style.width = openWidth;
-          iframe.style.height = openHeight;
-          iframe.style.borderRadius = "10px";
+          currentIframe.style.width = openWidth;
+          currentIframe.style.height = openHeight;
+          currentIframe.style.borderRadius = "10px";
         } else if (data.chatbotOpen === false) {
-          iframe.style.width = closedWidth;
-          iframe.style.height = closedHeight;
-          iframe.style.borderRadius = "35px";
+          currentIframe.style.width = closedWidth;
+          currentIframe.style.height = closedHeight;
+          currentIframe.style.borderRadius = "35px";
         }
       }
     };
 
     window.addEventListener("message", handleMessage);
 
-    // Cleanup function
+    // Cleanup function - only remove listener, keep iframe persistent
     return () => {
       window.removeEventListener("message", handleMessage);
-      if (iframe.parentNode) {
-        iframe.parentNode.removeChild(iframe);
-      }
     };
   }, []);
 
