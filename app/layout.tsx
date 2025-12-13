@@ -17,6 +17,10 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Haya Assurances - Votre partenaire de confiance",
   description: "Haya Assurances vous accompagne pour tous vos besoins en assurance : auto, habitation, mutuelle santé, moto. Service professionnel et personnalisé.",
+  icons: {
+    icon: "/assets/h.png",
+    apple: "/assets/h.png",
+  },
 };
 
 export default function RootLayout({
