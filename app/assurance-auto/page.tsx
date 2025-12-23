@@ -61,7 +61,20 @@ export default function AutoDevis() {
     const formData = new FormData(formElement);
     const access_token = process.env.NEXT_PUBLIC_ACCESS_KEY;
 
-    formData.append('access_key', access_token || '');
+    // Champ anti-bot (honeypot) : si rempli, on ignore l'envoi
+    if (formData.get('botcheck')) {
+      setResult('');
+      setErrorMessage('');
+      return;
+    }
+
+    if (!access_token) {
+      setResult('');
+      setErrorMessage("Clé d'accès du formulaire manquante. Merci de configurer NEXT_PUBLIC_ACCESS_KEY dans le fichier .env.local.");
+      return;
+    }
+
+    formData.append('access_key', access_token);
     formData.append('subject', 'Demande de devis Auto');
 
     try {
@@ -125,6 +138,20 @@ export default function AutoDevis() {
           {result && <p className="text-green-400 mt-6">{result}</p>}
 
           <form ref={formRef} onSubmit={onSubmit} className="mt-8">
+            {/* Champ anti-bot (honeypot) caché pour les utilisateurs humains */}
+            <div className="hidden">
+              <label htmlFor="botcheck" className="block text-sm text-white/60">
+                Laissez ce champ vide
+              </label>
+              <input
+                type="text"
+                id="botcheck"
+                name="botcheck"
+                autoComplete="off"
+                tabIndex={-1}
+                className="opacity-0"
+              />
+            </div>
             {/* Métadonnées pour le routage côté boîte mail */}
             <input type="hidden" name="from_name" value="Assurance Auto" />
             <input type="hidden" name="form_name" value="Assurance Auto" />

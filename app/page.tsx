@@ -10,7 +10,15 @@ import { MdHeight } from 'react-icons/md';
 
 const slides = [
   {
-    image: "/assets/image 1.jpeg",
+    title: "Votre assurance, notre engagement",
+    subtitle: "Des solutions sur mesure pour protéger ce qui compte le plus pour vous",
+    image: "https://images.unsplash.com/photo-1560520653-9e0e4c89eb11?q=80&w=2073&auto=format&fit=crop",
+    cta: {
+      secondary: {
+        text: "Nous contacter",
+        link: "/contact"
+      }
+    }
   },
   {
     title: "L'expertise à votre service",
@@ -24,8 +32,15 @@ const slides = [
     }
   },
   {
- 
-    image: "/assets/image2.png",
+    title: "Des solutions innovantes",
+    subtitle: "Découvrez nos services adaptés à vos besoins spécifiques",
+    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070&auto=format&fit=crop",
+    cta: {
+      secondary: {
+        text: "Nos reconnaissances",
+        link: "/certifications"
+      }
+    }
   }
 ];
 

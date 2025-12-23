@@ -64,7 +64,20 @@ export default function HabitationDevis() {
     const formData = new FormData(formElement);
     const access_token = process.env.NEXT_PUBLIC_ACCESS_KEY;
 
-    formData.append('access_key', access_token || '');
+    // Champ anti-bot (honeypot) : si rempli, on ignore l'envoi
+    if (formData.get('botcheck')) {
+      setResult('');
+      setErrorMessage('');
+      return;
+    }
+
+    if (!access_token) {
+      setResult('');
+      setErrorMessage("Clé d'accès du formulaire manquante. Merci de configurer NEXT_PUBLIC_ACCESS_KEY dans le fichier .env.local.");
+      return;
+    }
+
+    formData.append('access_key', access_token);
     formData.append('subject', 'Demande de devis Assurance Habitation');
 
     try {
@@ -105,7 +118,7 @@ export default function HabitationDevis() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 to-sky-900">
       <div className="absolute top-8 left-8 z-50">
-        <Link href="/contact">
+        <Link href="/">
           <motion.div whileHover={{ x: -5 }} className="flex items-center gap-2 text-white bg-black/20 backdrop-blur-md px-4 py-2 rounded-full hover:bg-black/40 transition-colors duration-300">
             <FaArrowLeft className="text-lg" />
             <span>Retour</span>
@@ -128,6 +141,20 @@ export default function HabitationDevis() {
           {result && <p className="text-green-400 mt-6">{result}</p>}
 
           <form ref={formRef} onSubmit={onSubmit} className="mt-8">
+            {/* Champ anti-bot (honeypot) caché pour les utilisateurs humains */}
+            <div className="hidden">
+              <label htmlFor="botcheck" className="block text-sm text-white/60">
+                Laissez ce champ vide
+              </label>
+              <input
+                type="text"
+                id="botcheck"
+                name="botcheck"
+                autoComplete="off"
+                tabIndex={-1}
+                className="opacity-0"
+              />
+            </div>
             {/* Métadonnées pour le routage côté boîte mail */}
             <input type="hidden" name="from_name" value="Assurance Habitation" />
             <input type="hidden" name="form_name" value="Assurance Habitation" />

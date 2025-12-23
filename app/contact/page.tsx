@@ -27,7 +27,20 @@ export default function Contact() {
     const formData = new FormData(formElement);
     const access_token = process.env.NEXT_PUBLIC_ACCESS_KEY;
 
-    formData.append("access_key", access_token || "");
+    // Champ anti-bot (honeypot) : si rempli, on ignore l'envoi
+    if (formData.get("botcheck")) {
+      setResult("");
+      setErrorMessage("");
+      return;
+    }
+
+    if (!access_token) {
+      setResult("");
+      setErrorMessage("Clé d'accès du formulaire manquante. Merci de configurer NEXT_PUBLIC_ACCESS_KEY dans le fichier .env.local.");
+      return;
+    }
+
+    formData.append("access_key", access_token);
 
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
@@ -196,6 +209,20 @@ export default function Contact() {
               )}
 
               <form onSubmit={onSubmit} className="space-y-6">
+                {/* Champ anti-bot (honeypot) caché pour les utilisateurs humains */}
+                <div className="hidden">
+                  <label htmlFor="botcheck" className="block text-sm text-white/60">
+                    Laissez ce champ vide
+                  </label>
+                  <input
+                    type="text"
+                    id="botcheck"
+                    name="botcheck"
+                    autoComplete="off"
+                    tabIndex={-1}
+                    className="opacity-0"
+                  />
+                </div>
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-white mb-2">
                     Nom complet
