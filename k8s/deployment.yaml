@@ -1,0 +1,77 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: haya-config
+  labels:
+    app: haya
+data:
+  ENV_VAR_1: "value1"
+  ENV_VAR_2: "value2"
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: haya
+  labels:
+    app: haya
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: haya
+  template:
+    metadata:
+      labels:
+        app: haya
+    spec:
+      containers:
+      - name: haya
+        image: haya:latest
+        ports:
+        - containerPort: 3000
+        env:
+        - name: ENV_VAR_1
+          valueFrom:
+            configMapKeyRef:
+              name: haya-config
+              key: ENV_VAR_1
+        - name: ENV_VAR_2
+          valueFrom:
+            configMapKeyRef:
+              name: haya-config
+              key: ENV_VAR_2
+        resources:
+          requests:
+            cpu: "250m"
+            memory: "512Mi"
+          limits:
+            cpu: "500m"
+            memory: "1Gi"
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 3000
+          initialDelaySeconds: 30
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /ready
+            port: 3000
+          initialDelaySeconds: 15
+          periodSeconds: 5
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: haya
+  labels:
+    app: haya
+spec:
+  type: ClusterIP
+  ports:
+  - port: 3000
+    targetPort: 3000
+  selector:
+    app: haya
